@@ -21,12 +21,19 @@ MACE_PROCESS_LIST : list = [get_uuid , get_pdc_id , get_cpu_info ,
                             get_disk_info , get_mem_info , get_mac_info]
 
 def SHRMACE_mace_info_dispatcher() -> dict:
+
+    def SHRMACE_Function_Launcher(func , var):
+        try:
+            func(var)
+        except Exception as e:
+            print(''.join(e.args()))
+
     try:
         var = SHRMACEData()
         thread_pool : list = []
         
         for func in MACE_PROCESS_LIST:
-            thread = threading.Thread(target = func, args=(var,))
+            thread = threading.Thread(target = SHRMACE_Function_Launcher , args=(func , var ,))
             thread.daemon = True
             thread_pool.append(thread)
 
@@ -40,3 +47,4 @@ def SHRMACE_mace_info_dispatcher() -> dict:
 
     except Exception as e:
         raise SHRMACEException(f'SHRMACEException [ERROR.2013] error occurred while getting creating threads pool. | {e}')
+    

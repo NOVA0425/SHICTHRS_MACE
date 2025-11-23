@@ -11,7 +11,6 @@ class SHRMACEData():
                                     'GPUINFO' : None ,
                                     'GPUID' : None ,
                                     'DiskINFO' : None ,
-                                    'DiskID' : None ,
                                     'MemeroyINFO' : None ,
                                     'MACAddress' : None ,
                                 }
