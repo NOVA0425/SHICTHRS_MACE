@@ -1,0 +1,2 @@
+
+from SHRMACE_ErrorBase import SHRJMACEException
