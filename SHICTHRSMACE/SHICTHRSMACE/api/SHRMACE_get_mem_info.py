@@ -4,11 +4,12 @@ import copy
 from ..SHRMACE_Data import SHRMACEResult
 from ..SHRMACE_ErrorBase import SHRMACEException
 
+MEM_INFO_COMMAND : str = 'wmic memorychip get Manufacturer, PartNumber, SerialNumber, Capacity, Speed, DeviceLocator, MemoryType, FormFactor'
+
 def get_mem_info() -> None:
     try:
-        command = 'wmic memorychip get Manufacturer, PartNumber, SerialNumber, Capacity, Speed, DeviceLocator, MemoryType, FormFactor'
         output = subprocess.check_output(
-            command, 
+            MEM_INFO_COMMAND, 
             shell=True, 
             text=True, 
             stderr=subprocess.STDOUT,
