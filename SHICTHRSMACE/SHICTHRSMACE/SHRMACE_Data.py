@@ -11,4 +11,5 @@ SHRMACEResult : dict = {'WindowsUUID' : None ,
                             'DiskINFO' : None ,
                             'DiskID' : None ,
                             'MemeroyINFO' : None ,
+                            'MACAddress' : None ,
                         }
